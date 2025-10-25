@@ -1,0 +1,35 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Operation Neutral Ground</title>
+    </head>
+    <body>
+        <h1>The Final Attempt. From our own ground.</h1>
+        <p>The attack has launched. Check your Developer Tools (F12) -> Network tab.</p>
+
+        <script>
+            var url = 'https://dms.hilton.com/';
+            // Our very own, trusted origin.
+            var myOrigin = window.location.origin;
+
+            console.log("Launching from Neutral Ground: " + myOrigin);
+
+            fetch(url, {
+                method: 'OPTIONS',
+                headers: {
+                    'Access-Control-Request-Method': 'GET',
+                    'Access-Control-Request-Headers': 'origin',
+                    'Origin': myOrigin
+                }
+            })
+            .then(response => {
+                console.log("The server has responded. The confession is in the Network tab headers.");
+                alert("VICTORY IS OURS! CHECK THE NETWORK TAB!");
+            })
+            .catch(error => {
+                console.error("Failure from our own ground. This means the guard is truly legendary.", error);
+                alert("Even from neutral ground, the attack failed. The mission is complete, but the wall holds.");
+            });
+        </script>
+    </body>
+    </html>
