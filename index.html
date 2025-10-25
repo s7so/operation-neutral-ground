@@ -1,17 +1,18 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Operation Neutral Ground</title>
+        <title>Operation Certainty</title>
     </head>
     <body>
-        <h1>The Final Attempt. From our own ground.</h1>
-        <p>The attack has launched. Check your Developer Tools (F12) -> Network tab.</p>
+        <h1>Testing if our spy is alive...</h1>
 
         <script>
-            var url = 'https://dms.hilton.com/';
-            // Our very own, trusted origin.
-            var myOrigin = window.location.origin;
+            // This is our spy. If you see this message, our code is working.
+            alert("The spy is alive and ready to attack!");
 
+            // --- The original attack code follows ---
+            var url = 'https://dms.hilton.com/';
+            var myOrigin = window.location.origin;
             console.log("Launching from Neutral Ground: " + myOrigin);
 
             fetch(url, {
@@ -23,12 +24,12 @@
                 }
             })
             .then(response => {
-                console.log("The server has responded. The confession is in the Network tab headers.");
-                alert("VICTORY IS OURS! CHECK THE NETWORK TAB!");
+                console.log("The server has responded.");
+                alert("VICTORY! CHECK THE NETWORK TAB!");
             })
             .catch(error => {
-                console.error("Failure from our own ground. This means the guard is truly legendary.", error);
-                alert("Even from neutral ground, the attack failed. The mission is complete, but the wall holds.");
+                console.error("The attack failed.", error);
+                alert("The attack failed. The mission is complete, but the wall holds.");
             });
         </script>
     </body>
